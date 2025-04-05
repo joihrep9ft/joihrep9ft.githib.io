@@ -62,12 +62,16 @@ function showResults() {
     var answerContainers = quizContainer.querySelectorAll('.answers');
     // keep track of user's answers
     var numCorrect = 0;
+    // initialize an array to store answers
+    var userAnswers = [];
     // for each question...
     for(i=0; i<quizQuestions.length; i++){
         // find selected answer
         userAnswer = 
             (answerContainers[i].querySelector('input[name=question'+i+']:checked')||
         {}).value;
+         // add user's answer to the array
+        userAnswers.push(userAnswer || "No Answer");
         // if answer is correct
         if(userAnswer===quizQuestions[i].correctAnswer){
             // add to the number of correct answers
@@ -94,6 +98,12 @@ function showResults() {
     if (numCorrect === 3) { 
         resultsContainer.innerHTML = "Congratulations! You got a perfect score of 3 out of 3 for your responses. You know Sophia so well!";
         } 
+     // Add results as a hidden input field to the form
+    const resultsInput = document.createElement('input');
+    resultsInput.type = 'hidden';
+    resultsInput.name = 'Quiz Results';
+    resultsInput.value = `Score: ${numCorrect}/${quizQuestions.length} - Answers: ${userAnswers.join(', ')}`;
+    document.getElementById('quizForm').appendChild(resultsInput);
 }
 // load quiz
 buildQuiz();
