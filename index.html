@@ -84,20 +84,23 @@
             <h2 id="ContactLink">Contact</h2>
                 <a href="https://www.linkedin.com/in/sophia-love-09b5301b5/" target="_blank">LinkedIn</a>
                 <br><br>
-                <form>
-                    <label for="name">*Name</label><br>
-                    <input type="text" id="name" name="name" required>
-                    <br><br>
-                    <label for="email">*Email</label><br>
-                    <input type="email" name="email" id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
-                    <br><br>
-                    <label for="mobile">Mobile (optional):</label><br>
-                    <input type="tel" name="mobile" id="mobile" pattern="[0-9]{10,16}">
-                    <br><br>
-                    <label for="message">*Leave your message below</label><br>
-                    <textarea id="message" name="message" rows="5" cols="30" required></textarea>
-                    <br><br>
-                    <input type="submit">
+                <form id="contactform" action="https://formspree.io/f/mdkewjen" method="POST">
+                    <label for="name">*Name</label>
+                    <br>
+                <input type="text" id="name" name="name" required>
+                <br><br>
+                <label for="email">*Email</label><br>
+                <input type="email" name="email" id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
+                <br>
+                <br>
+                <label for="mobile">Mobile (optional):</label><br>
+                <input type="tel" name="mobile" id="mobile" pattern="[0-9]{10,16}">
+                <br><br>
+                <label for="message">*Leave your message below</label><br>
+                <textarea id="message" name="message" rows="5" cols="30" required></textarea>
+                <br>
+                <br>
+                <input type="submit">
                 </form>
             </div>
             <br><br>
